@@ -1,0 +1,38 @@
+<div class="container">
+  <h2 class="text-center mt-5">My Tasks</h2>
+  <table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Check</th>
+      <th scope="col">Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @tasks.each do |t| %>
+    <tr>
+      <th scope="row"><%= t.id %></th>
+      <td>
+        <div class="form-check">
+          <input class="form-check-input"
+                 type="checkbox"
+                 id="flexCheckChecked" <%= if t.completed
+                 "checked"
+                 else
+                 "unchecked"
+                 end %>>
+          <label class="form-check-label" for="flexCheckChecked">
+            <a href="/tasks/<%= t.id %>"><%= t.title %></a>
+          </label>
+      </td>
+      <td>
+        <a data-confirm="Are you sure?" rel="nofollow" data-method="delete" href="/tasks/<%= t.id%>" class="btn btn-danger">
+          <i class="fas fa-trash-alt"></i>
+        </a>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+<a href="/tasks/new" class="btn btn-primary btn-lg"><i class="fas fa-plus-square"></i></a>
+</div>

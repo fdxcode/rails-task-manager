@@ -1,0 +1,8 @@
+<div class="container">
+<h1><%= @task.title %></h1>
+<div class="alert alert-secondary" role="alert">
+  <%= @task.details %>
+  <a href="/tasks/<%= @task.id %>/edit" class="btn btn-success mr-4"><i class="far fa-edit"></i></a>
+</div>
+<a href="/tasks" class="btn btn-primary"><i class="fas fa-undo-alt"></i></a>
+</div>
